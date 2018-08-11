@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SearchBar from '../components/SearchBar';
+import ImageBox from '../components/ImageBox';
 
 class MainBox extends Component {
   render() {
@@ -7,6 +8,7 @@ class MainBox extends Component {
       <div>
         <header>
             <SearchBar />
+            <ImageBox />
         </header>
       </div>
     );
