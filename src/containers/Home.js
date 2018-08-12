@@ -22,14 +22,14 @@ class Home extends Component {
     this.getImages().then(this.setImages);
   };
 
-  handleSearch = () => {
-    this.getImages().then(images => {
+  updateImages = pageNumber => {
+    this.getImages(pageNumber).then(images => {
       images = [...this.state.images, ...images];
       this.setImages(images);
     });
   };
 
-  getImages = pageNumber => {
+  getImages = (pageNumber = 0) => {
     const tags = this.state.searchWord || "cats";
     const url = `${apiURL}flickr.photos.search&tags=${tags}&per_page=10&page=${pageNumber}`;
 
@@ -72,11 +72,15 @@ class Home extends Component {
         </header>
         <ImageBox
           images={this.state.images}
-          handleScroll={this.getImages}
+          handleScroll={this.updateImages}
           handleTagClick={this.handleTagClick}
         />
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.updateImages();
   }
 }
 

@@ -17,7 +17,7 @@ const customStyles = {
   }
 };
 
-// Modal.setAppElement("#yourAppElement");
+Modal.setAppElement("#root");
 
 export default class GridImage extends Component {
   state = {
@@ -64,7 +64,12 @@ export default class GridImage extends Component {
     return (
       <div>
         <div>
-          <img onClick={this.openModal} src={this.props.imageUrl} alt="" />
+          <img
+            className="grid-image"
+            onClick={this.openModal}
+            src={this.props.imageUrl}
+            alt=""
+          />
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}

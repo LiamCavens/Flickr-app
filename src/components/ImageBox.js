@@ -6,7 +6,7 @@ import GridImage from "./GridImage";
 export default class ImageBox extends Component {
   render() {
     return (
-      <div className="infinite-scroll-container">
+      <div className="scroll-wrapper">
         <InfiniteScroll
           pageStart={1}
           loadMore={this.props.handleScroll}
@@ -18,15 +18,16 @@ export default class ImageBox extends Component {
           }
           useWindow={false}
         >
-          {this.props.images.map(image => (
-            <GridImage
-              imageUrl={image.url}
-              largeImage={image.largeUrl}
-              imageInfo={image.info}
-              handleTagClick={this.props.handleTagClick}
-            />
-            // <img key={image.url} src={image.url} alt="" />
-          ))}
+          <div className="infinite-scroll-container">
+            {this.props.images.map(image => (
+              <GridImage
+                imageUrl={image.url}
+                largeImage={image.largeUrl}
+                imageInfo={image.info}
+                handleTagClick={this.props.handleTagClick}
+              />
+            ))}
+          </div>
         </InfiniteScroll>
       </div>
     );
