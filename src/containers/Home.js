@@ -5,7 +5,7 @@ import ImageBox from "../components/ImageBox";
 const apiURL =
   "https://www.flickr.com/services/rest/?api_key=4b23ff6de8623a81e2c7c2fa196d5d8a&format=json&nojsoncallback=true&method=";
 
-class MainBox extends Component {
+class Home extends Component {
   state = {
     images: [],
     searchWord: ""
@@ -34,6 +34,7 @@ class MainBox extends Component {
             const { farmId, serverId, id, secret } = imageProperties;
             return {
               url: `https://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}_q.jpg`,
+              largeUrl: `https://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}_b.jpg`,
               info: `${apiURL}flickr.photos.getInfo&secret=${secret}&photo_id=${id}`
             };
           });
@@ -60,4 +61,4 @@ class MainBox extends Component {
   }
 }
 
-export default MainBox;
+export default Home;
