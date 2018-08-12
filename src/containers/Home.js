@@ -22,6 +22,10 @@ class Home extends Component {
     this.getImages().then(this.setImages);
   };
 
+  handleSearch = () => {
+    this.getImages().then(this.setImages);
+  };
+
   updateImages = pageNumber => {
     this.getImages(pageNumber).then(images => {
       images = [...this.state.images, ...images];
