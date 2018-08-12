@@ -6,7 +6,7 @@ export default class SearchBar extends Component {
     return (
       <div className="search-bar">
         <p id="app-name-logo">Flickr</p>
-        <div className="searchform">
+        <div className="search-form">
           <input
             id="search"
             type="search"

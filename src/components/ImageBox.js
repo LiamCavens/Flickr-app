@@ -9,9 +9,7 @@ export default class ImageBox extends Component {
       <div className="infinite-scroll-container">
         <InfiniteScroll
           pageStart={1}
-          loadMore={e => {
-            console.log(e);
-          }}
+          loadMore={this.props.handleScroll}
           hasMore={true}
           loader={
             <div className="loader" key={0}>
@@ -27,10 +25,4 @@ export default class ImageBox extends Component {
       </div>
     );
   }
-
-  //   componentWillReceiveProps(props) {
-  //     if (condition) {
-
-  //     }
-  //   }
 }

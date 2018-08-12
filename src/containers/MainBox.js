@@ -16,9 +16,8 @@ class MainBox extends Component {
     this.setState({ searchWord });
   };
 
-  getImages = (pageNumber = 1) => {
-    console.log(pageNumber);
-    const tags = this.state.searchWord || "belter";
+  getImages = pageNumber => {
+    const tags = this.state.searchWord || "cats";
     const url = `${apiURL}flickr.photos.search&tags=${tags}&per_page=10&page=${pageNumber}`;
 
     fetch(url)
@@ -39,7 +38,9 @@ class MainBox extends Component {
             };
           });
 
-        this.setState({ images });
+        this.setState({
+          images: [...this.state.images, ...images]
+        });
       });
   };
 
@@ -52,7 +53,7 @@ class MainBox extends Component {
             handleSearchClick={this.getImages}
             searchWord={this.state.searchWord}
           />
-          <ImageBox images={this.state.images} />
+          <ImageBox images={this.state.images} handleScroll={this.getImages} />
         </header>
       </div>
     );

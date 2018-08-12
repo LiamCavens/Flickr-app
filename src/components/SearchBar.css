@@ -13,7 +13,7 @@
   font-size: 28px;
 }
 
-.searchform {
+.search-form {
   background: #f4f4f4;
   background: rgba(244, 244, 244, 0.79);
   border: 1px solid #d3d3d3;
@@ -27,7 +27,7 @@
   border-radius: 2px;
 }
 
-.searchform input {
+.search-form input {
   background: #fefefe;
   border: none;
   margin-right: 5px;
@@ -38,12 +38,12 @@
   border-radius: 9px;
 }
 
-.searchform input:focus {
+.search-form input:focus {
   outline: none;
   box-shadow: 0 0 4px rgb(1, 143, 190) inset;
 }
 
-.searchform button {
+.search-form button {
   background: rgb(52, 173, 236);
   background: linear-gradient(
     to bottom,
@@ -61,6 +61,6 @@
   border-radius: 9px;
 }
 
-.searchform button:hover {
+.search-form button:hover {
   opacity: 0.9;
 }
