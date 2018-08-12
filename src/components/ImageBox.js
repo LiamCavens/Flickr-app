@@ -8,8 +8,10 @@ export default class ImageBox extends Component {
     return (
       <div className="infinite-scroll-container">
         <InfiniteScroll
-          pageStart={0}
-          loadMore={this.fetchMoreImages}
+          pageStart={1}
+          loadMore={e => {
+            console.log(e);
+          }}
           hasMore={true}
           loader={
             <div className="loader" key={0}>
@@ -18,10 +20,8 @@ export default class ImageBox extends Component {
           }
           useWindow={false}
         >
-          {this.props.images.map((image, index) => (
-            <div key={index} className="image-container">
-              {image[index]}
-            </div>
+          {this.props.images.map(image => (
+            <img key={image.url} src={image.url} alt="" />
           ))}
         </InfiniteScroll>
       </div>

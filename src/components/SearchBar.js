@@ -2,29 +2,22 @@ import React, { Component } from "react";
 import "./SearchBar.css";
 
 export default class SearchBar extends Component {
-  state = {
-    userInput: ""
-  };
-
-  handleUserInput = e => {
-    const userInput = e.target.value;
-    this.setState({ userInput });
-  };
-
   render() {
     return (
-      <div className="searchbar">
+      <div className="search-bar">
         <p id="app-name-logo">Flickr</p>
         <div className="searchform">
           <input
             id="search"
             type="search"
             name="search"
-            onChange={this.handleUserInput}
+            defaultValue={this.props.searchWord}
+            onChange={this.props.handleUserInput}
+            placeholder="What are you looking for?"
           />
           <button
             onClick={() => {
-              this.props.handleSearchClick(this.state.userInput);
+              this.props.handleSearchClick();
             }}
           >
             Search
