@@ -1,1 +1,1 @@
-Libraries Used : InfiniteScrollComponent
+Libraries Used : InfiniteScrollComponent, React Modal Component

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InfiniteScroll from "react-infinite-scroller";
-import Image from "./SingleImage";
 import "./ImageBox.css";
+import GridImage from "./GridImage";
 
 export default class ImageBox extends Component {
   render() {
@@ -19,7 +19,13 @@ export default class ImageBox extends Component {
           useWindow={false}
         >
           {this.props.images.map(image => (
-            <img key={image.url} src={image.url} alt="" />
+            <GridImage
+              imageUrl={image.url}
+              largeImage={image.largeUrl}
+              imageInfo={image.info}
+              handleTagClick={this.props.handleTagClick}
+            />
+            // <img key={image.url} src={image.url} alt="" />
           ))}
         </InfiniteScroll>
       </div>

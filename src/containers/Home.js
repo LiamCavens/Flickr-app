@@ -16,11 +16,24 @@ class Home extends Component {
     this.setState({ searchWord });
   };
 
+  handleTagClick = tagName => {
+    const searchWord = tagName;
+    this.setState({ searchWord });
+    this.getImages().then(this.setImages);
+  };
+
+  handleSearch = () => {
+    this.getImages().then(images => {
+      images = [...this.state.images, ...images];
+      this.setImages(images);
+    });
+  };
+
   getImages = pageNumber => {
     const tags = this.state.searchWord || "cats";
     const url = `${apiURL}flickr.photos.search&tags=${tags}&per_page=10&page=${pageNumber}`;
 
-    fetch(url)
+    return fetch(url)
       .then(res => res.json())
       .then(json => {
         const images = json.photos.photo
@@ -39,10 +52,12 @@ class Home extends Component {
             };
           });
 
-        this.setState({
-          images: [...this.state.images, ...images]
-        });
+        return Promise.resolve(images);
       });
+  };
+
+  setImages = images => {
+    this.setState({ images });
   };
 
   render() {
@@ -51,11 +66,15 @@ class Home extends Component {
         <header>
           <SearchBar
             handleUserInput={this.handleUserInput}
-            handleSearchClick={this.getImages}
+            handleSearchClick={this.handleSearch}
             searchWord={this.state.searchWord}
           />
-          <ImageBox images={this.state.images} handleScroll={this.getImages} />
         </header>
+        <ImageBox
+          images={this.state.images}
+          handleScroll={this.getImages}
+          handleTagClick={this.handleTagClick}
+        />
       </div>
     );
   }
