@@ -9,6 +9,7 @@ export default class SearchBar extends Component {
         <div className="search-form">
           <input
             id="search"
+            ref="search"
             type="search"
             name="search"
             defaultValue={this.props.searchWord}

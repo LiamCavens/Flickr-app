@@ -18,8 +18,8 @@ class Home extends Component {
 
   handleTagClick = tagName => {
     const searchWord = tagName;
-    this.setState({ searchWord });
     this.getImages().then(this.setImages);
+    this.setState({ searchWord });
   };
 
   handleSearch = () => {
