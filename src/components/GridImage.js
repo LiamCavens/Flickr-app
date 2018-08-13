@@ -17,7 +17,7 @@ const customStyles = {
   }
 };
 
-Modal.setAppElement("#root");
+Modal.setAppElement(document.getElementById("root"));
 
 export default class GridImage extends Component {
   state = {
