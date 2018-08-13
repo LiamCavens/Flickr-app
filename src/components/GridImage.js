@@ -8,9 +8,9 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     height: "80%",
+    maxWidth: "80%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -77,17 +77,20 @@ export default class GridImage extends Component {
             contentLabel="Example Modal"
           >
             <img className="modal-image" src={this.props.largeImage} alt="" />
-            <span className="modal-info">
-              Title : {this.state.imageInfo.title}
-            </span>
+
+             {(this.state.imageInfo.title)
+              ? <span className="modal-title">
+                {this.state.imageInfo.title}
+                </span>
+              : null
+             }
              {(this.state.imageInfo.description)
-              ? <span className="modal-info">
-                Description : {this.state.imageInfo.description}
+              ? <span className="modal-desc">
+                {this.state.imageInfo.description}
                 </span>
               : null
              }
             
-
             <div className="modal-tags">
               {this.state.imageInfo.tags.map(tag => (
                 <span
