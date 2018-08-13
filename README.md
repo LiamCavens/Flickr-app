@@ -13,6 +13,9 @@
 ## To Run
 
 ### npm install
+
+#### then
+
 ### npm start to start
 ### npm build to build
 ### npm test to test
