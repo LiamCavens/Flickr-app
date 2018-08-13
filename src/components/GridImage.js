@@ -80,9 +80,14 @@ export default class GridImage extends Component {
             <span className="modal-info">
               Title : {this.state.imageInfo.title}
             </span>
-            <span className="modal-info">
-              Description : {this.state.imageInfo.description}
-            </span>
+             {(this.state.imageInfo.description)
+              ? <span className="modal-info">
+                Description : {this.state.imageInfo.description}
+                </span>
+              : null
+             }
+            
+
             <div className="modal-tags">
               {this.state.imageInfo.tags.map(tag => (
                 <span
